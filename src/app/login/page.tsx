@@ -19,7 +19,6 @@ const LoginPage = () => {
   const onSubmit = async (data: FormValues) => {
     console.log(data);
   };
-  console.log("check env file:", process.env.GITHUB_ID);
 
   return (
     <div className="my-10">
@@ -87,7 +86,14 @@ const LoginPage = () => {
                 alt="google logo"
               />
             </button>
-            <button className="btn btn-circle" onClick={() => signIn()}>
+            <button
+              className="btn btn-circle"
+              onClick={() =>
+                signIn("github", {
+                  callbackUrl: "http://localhost:3000/dashboard",
+                })
+              }
+            >
               <Image
                 src="https://cdn-icons-png.flaticon.com/512/25/25231.png"
                 width={35}

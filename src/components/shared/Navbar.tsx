@@ -1,6 +1,13 @@
 import Link from "next/link";
 
-const Navbar = () => {
+type NavbarProps = {
+  user?: {
+    name?: string | undefined | null;
+    email?: string | undefined | null;
+    image?: string | undefined | null;
+  };
+};
+const Navbar = ({ session }: { session: NavbarProps | null }) => {
   return (
     <div className="navbar bg-base-100  border-b  w-[90%] mx-auto">
       <div className="navbar-start">
